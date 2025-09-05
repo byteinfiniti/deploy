@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: imagepull-demo
+  namespace: imagepull-demo
+  labels:
+    app: imagepull-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: imagepull-demo
+  template:
+    metadata:
+      labels:
+        app: imagepull-demo
+    spec:
+      containers:
+        - name: app
+          image: nginx
+          ports:
+            - containerPort: 80
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 2
+            periodSeconds: 5
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 5
+            periodSeconds: 10
+
