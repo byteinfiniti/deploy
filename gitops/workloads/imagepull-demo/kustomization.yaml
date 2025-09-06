@@ -2,10 +2,9 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-  - namespace.yaml
-  - deployment.yaml
+- namespace.yaml
+- deployment.yaml
 
 images:
-  - name: nginx
-    newTag: v99
-
+- name: nginx
+  newTag: "1.27.2-alpine"
