@@ -7,4 +7,4 @@ resources:
 
 images:
 - name: nginx
-  newTag: v1.97
+  newTag: "1.29.1-alpine"
